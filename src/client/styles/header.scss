@@ -1,0 +1,145 @@
+.header {
+  background-color: $color-light;
+  min-height: 4rem;
+  max-height: 5rem;
+  position: fixed;
+  width: 100vw;
+  z-index: 5;
+
+  @media only screen and (min-width: 350px) {
+    min-height: 6rem;
+    max-height: 7rem;
+  } 
+}
+
+.sticky {
+  position: fixed;
+  box-shadow: 0 10px 10px -10px rgba(0,0,0,0.35); 
+  animation-name: animationFade;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  transition: all 0.3s ease;
+
+  @keyframes animationFade{
+    from{
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%,0);
+        transform: translate3d(0, -100%,0);
+    }
+    to{
+        opacity: 1;
+        transform: none;
+        -webkit-transform: none;
+        -o-transform: none;
+    }
+  }
+}       
+
+.active{
+  border-bottom: 0.2rem $color-black solid;
+}
+
+.navbar {
+  align-items: center;
+  display: flex; 
+  height: 100%;
+  justify-content: space-around;
+  padding: 0.5rem 1.5rem;
+
+  @media only screen and (min-width: 350px) {
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  } 
+
+  @media only screen and (min-width: 576px) {
+    padding: 1rem 3rem;
+  }
+
+  @media only screen and (min-width: 992px) {
+    padding: 1rem 5rem;
+  }
+
+  
+
+  .navbar_brand {
+    font-family: $font-text;
+    font-size: 8vw;
+    color: $primary-color;
+    line-height: 1.4;
+    margin-left: 1rem;
+
+    @media only screen and (min-width: 350px) {
+      font-size: 6vw;
+      margin-right: auto;
+    } 
+
+    @media only screen and (min-width: 768px) {
+      font-size: 5vw;
+    } 
+
+    @media only screen and (min-width: 992px) {
+      font-size: 4vw;
+    } 
+
+    @media only screen and (min-width: 1200px) {
+      font-size: 2.5vw;
+    } 
+    
+  }
+
+  .navbar_menu {
+    display: none;
+  
+    @media only screen and (min-width: 350px) {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    } 
+
+    .navbar_list {
+      display: inline-block;
+
+      @media only screen and (min-width: 350px) {
+        padding-left: 1rem;
+        } 
+
+      @media only screen and (min-width: 576px) {
+        padding-left: 1.5rem;
+        } 
+
+      @media only screen and (min-width: 1200px) {
+        padding-left: 2rem;
+        } 
+
+      a, a:visited {
+        color:$primary-color;
+        cursor: pointer;
+        display: block;
+        font-family: $font-text ;
+        font-size: 1.3rem;  
+        letter-spacing: 0.1rem;
+        text-decoration: none;
+        padding-bottom: 10px;
+
+        @media only screen and (min-width: 576px) {
+          font-size: 4vw;
+        } 
+
+        @media only screen and (min-width: 768px) {
+          font-size: 3vw;
+        } 
+
+        @media only screen and (min-width: 992px) {
+          font-size: 2vw;
+        } 
+
+        @media only screen and (min-width: 1200px) {
+          font-size: 2vw;
+        } 
+      }
+
+     
+    }
+  }
+
+}

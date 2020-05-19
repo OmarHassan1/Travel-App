@@ -1,0 +1,91 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Travel App
+  body
+
+    // start header
+    header.header#scroll
+      nav.navbar
+        h2.navbar_brand Travel App
+        ul.navbar_menu
+          li.navbar_list
+            a(href="#about") About
+          li.navbar_list
+            a(href="#planner") Plan Your Trip
+    //end header
+
+    main.main
+      // Section About
+      section#about.section.section__about
+        .map
+          .about__map
+            h1.heading Travel App
+            h3.title Lorem ipsum dolor sit
+            p.text
+              | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ad quod consequatur
+              | dignissimos quisquam, in doloribus accusantium reiciendis voluptatum alias rem incidunt! Porro ad aperiam,
+              | iste distinctio repellat debitis alias.
+            a.link(href="#") ADD Your Trip
+
+
+      // Section Planner
+      section#planner.section.section__planner
+        .container.planner__form
+          form#form.form__content
+            h2.form__heading Plan your trip
+            input.form__input.input__from(type="text" name="from" placeholder="leaving from..." autocomplete="off" required="")
+            input.form__input.input__to(type="text" name="to" placeholder="going to..." autocomplete="off" required="")
+            label.date__label(for="date") departing on...
+            input.form__input.input__date(type="date" name="date" required="")
+            input.input__submit(type="submit" name="submit" value="Submit")
+
+      // Section Result
+      section#result.section.section__result.invisible
+        .container.results
+          .result__image
+            img#fromPixabay(src="" alt="destination image")
+          .result__content
+            i.city__icon.icon__result.fas.fa-map-pin
+            h2.city__name.text__result
+              | You are going to: 
+              span#city
+            i.date__icon.icon__result.fas.fa-calendar-day
+            h2.date__name.text__result
+              | Departing on: 
+              span#date DD/MM/YYYY
+            i.days__icon.icon__result.fas.fa-suitcase-rolling
+            h2.days__name.text__result
+              | This is 
+              span#days  NUM 
+              |  days away
+            i.weather__icon.icon__result.fas.fa-cloud-sun-rain
+            h2.weather__name.text__result
+              | Expect weather to be: 
+              span#temp 200C
+              |  ° F, 
+              span#summary
+              | .
+            a#save.button.button__save(href="#") Print
+            a#delete.button.button__delete(href="#") Delete
+            
+    // start Footer
+    footer.footer
+      .footer__copyright
+        p.copyright__text All rights reserved ©
+    // end footer
+    // Service Workers
+    script.
+      // Check that service workers are supported
+       if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js').then(registration =>{
+                console.log('SW registered successfuly: ', registration);
+            });
+        });
+        }else{
+        console.log("Service Working not supported");
+            }
